@@ -2,6 +2,7 @@ package com.usatayamish.expertcourseunscramblegame
 
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.usatayamish.expertcourseunscramblegame.game.GamePage
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -36,7 +37,7 @@ class ScenarioTest {
         gamePage.assertSufficientState()
 
         gamePage.clickCheck()
-        gamePage.assertCorrectState
+        gamePage.assertCorrectState()
 
         gamePage.clickNext()
 
@@ -59,7 +60,7 @@ class ScenarioTest {
         gamePage.assertSufficientState()
 
         gamePage.clickCheck()
-        gamePage.assertCorrectState
+        gamePage.assertCorrectState()
 
         gamePage.clickNext()
 
