@@ -98,7 +98,7 @@ class GamePage(word: String) {
     }
 
     fun assertIncorrectState() {
-        shuffledWordUi.assertTextVisible
+        shuffledWordUi.assertTextVisible()
         inputUi.assertIncorrectState()
         checkUi.assertVisibleDisabled()
         skipUi.assertVisible()
