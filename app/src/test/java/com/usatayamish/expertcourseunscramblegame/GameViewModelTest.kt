@@ -268,7 +268,7 @@ class GameViewModelTest {
         expected = GameUiState.Correct(shuffledWord = "f1")
         assertEquals(expected, actual)
 
-        actual = viewModel.skip()
+        actual = viewModel.next()
         expected = GameUiState.Initial(shuffledWord = "f2")
         assertEquals(expected, actual)
 
@@ -307,10 +307,21 @@ class GameViewModelTest {
         expected = GameUiState.Correct(shuffledWord = "f1")
         assertEquals(expected, actual)
 
-        actual = viewModel.skip()
+        actual = viewModel.next()
         expected = GameUiState.Initial(shuffledWord = "f2")
         assertEquals(expected, actual)
+
+        actual = viewModel.skip()
+        expected = GameUiState.Initial(shuffledWord = "f3")
+        assertEquals(expected, actual)
+
+        actual = viewModel.skip()
+        expected = GameUiState.Initial(shuffledWord = "f4")
+        assertEquals(expected, actual)
     }
+
+
+
 }
 
 private class FakeRepository : GameRepository {
