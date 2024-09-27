@@ -2,6 +2,7 @@ package com.usatayamish.expertcourseunscramblegame.game
 
 import android.view.KeyEvent
 import android.view.View
+import android.widget.FrameLayout
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.action.ViewActions.click
@@ -41,9 +42,7 @@ class InputUi(
     private val inputInteraction: ViewInteraction = onView(
         allOf(
             isAssignableFrom(TextInputEditText::class.java),
-            withId(R.id.inputEditText),
-            withParent(withId(inputLayoutId)),
-            withParent(isAssignableFrom(TextInputLayout::class.java))
+            withId(R.id.inputEditText)
         )
     )
 
