@@ -1,4 +1,4 @@
-import android.databinding.tool.writer.ViewBinding
+
 
 plugins {
     alias(libs.plugins.android.application)
@@ -37,6 +37,10 @@ android {
     }
     buildFeatures{
         viewBinding = true
+    }
+    testOptions{
+        animationsDisabled = true
+
     }
 }
 

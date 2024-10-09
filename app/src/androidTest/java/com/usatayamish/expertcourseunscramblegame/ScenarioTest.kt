@@ -18,55 +18,85 @@ class ScenarioTest {
     @get: Rule
     val scenarioRule = ActivityScenarioRule(MainActivity::class.java)
 
+
+
     private lateinit var gamePage: GamePage
+
 
     @Before
     fun setup(){
         gamePage = GamePage(word = "animal".reversed())
-
     }
+
+
+
+
 
     /**
      * UGTC-01
      */
     @Test
     fun caseNumber1() {
-        gamePage.assertInitialState()
+
+        scenarioRule.doWithRecreate {
+            gamePage.assertInitialState()
+        }
+
 
         gamePage.addInput(text = "animal")
-        gamePage.assertSufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertSufficientState()
+        }
 
         gamePage.clickCheck()
-        gamePage.assertCorrectState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertCorrectState()
+        }
+
 
         gamePage.clickNext()
 
         gamePage = GamePage(word = "auto".reversed())
 
-        gamePage.assertInitialState()
+
+        scenarioRule.doWithRecreate {
+            gamePage.assertInitialState()
+        }
     }
+
 
     /**
      * UGTC-02
      */
     @Test
     fun caseNumber2() {
-        gamePage.assertInitialState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInitialState()
+        }
 
         gamePage.addInput(text = "anima")
-        gamePage.assertInsufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInsufficientState()
+        }
 
         gamePage.addInput(text = "l")
-        gamePage.assertSufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertSufficientState()
+        }
 
         gamePage.clickCheck()
-        gamePage.assertCorrectState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertCorrectState()
+        }
 
         gamePage.clickNext()
 
         gamePage = GamePage(word = "auto".reversed())
 
-        gamePage.assertInitialState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInitialState()
+        }
+
     }
 
     /**
@@ -74,13 +104,17 @@ class ScenarioTest {
      */
     @Test
     fun caseNumber3() {
-        gamePage.assertInitialState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInitialState()
+        }
 
         gamePage.clickSkip()
 
         gamePage = GamePage(word = "auto".reversed())
 
-        gamePage.assertInitialState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInitialState()
+        }
 
     }
 
@@ -89,16 +123,22 @@ class ScenarioTest {
      */
     @Test
     fun caseNumber4() {
-        gamePage.assertInitialState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInitialState()
+        }
 
         gamePage.addInput(text = "anima")
-        gamePage.assertInsufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInsufficientState()
+        }
 
         gamePage.clickSkip()
 
         gamePage = GamePage(word = "auto".reversed())
 
-        gamePage.assertInitialState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInitialState()
+        }
     }
 
     /**
@@ -106,19 +146,27 @@ class ScenarioTest {
      */
     @Test
     fun caseNumber5() {
-        gamePage.assertInitialState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInitialState()
+        }
 
         gamePage.addInput(text = "anima")
-        gamePage.assertInsufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInsufficientState()
+        }
 
         gamePage.addInput(text = "l")
-        gamePage.assertSufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertSufficientState()
+        }
 
         gamePage.clickSkip()
 
         gamePage = GamePage(word = "auto".reversed())
 
-        gamePage.assertInitialState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInitialState()
+        }
     }
 
     /**
@@ -126,22 +174,32 @@ class ScenarioTest {
      */
     @Test
     fun caseNumber6() {
-        gamePage.assertInitialState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInitialState()
+        }
 
         gamePage.addInput(text = "anima")
-        gamePage.assertInsufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInsufficientState()
+        }
 
         gamePage.addInput(text = "l")
-        gamePage.assertSufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertSufficientState()
+        }
 
         gamePage.removeInputLastLetter()
-        gamePage.assertInsufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInsufficientState()
+        }
 
         gamePage.clickSkip()
 
         gamePage = GamePage(word = "auto".reversed())
 
-        gamePage.assertInitialState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInitialState()
+        }
     }
 
     /**
@@ -149,22 +207,32 @@ class ScenarioTest {
      */
     @Test
     fun caseNumber7() {
-        gamePage.assertInitialState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInitialState()
+        }
 
         gamePage.addInput(text = "anima")
-        gamePage.assertInsufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInsufficientState()
+        }
 
         gamePage.addInput(text = "h")
-        gamePage.assertSufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertSufficientState()
+        }
 
         gamePage.clickCheck()
-        gamePage.assertIncorrectState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertIncorrectState()
+        }
 
         gamePage.clickSkip()
 
         gamePage = GamePage(word = "auto".reversed())
 
-        gamePage.assertInitialState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInitialState()
+        }
     }
 
     /**
@@ -172,28 +240,42 @@ class ScenarioTest {
      */
     @Test
     fun caseNumber8() {
-        gamePage.assertInitialState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInitialState()
+        }
 
         gamePage.addInput(text = "anima")
-        gamePage.assertInsufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInsufficientState()
+        }
 
         gamePage.addInput(text = "h")
-        gamePage.assertSufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertSufficientState()
+        }
 
         gamePage.clickCheck()
-        gamePage.assertIncorrectState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertIncorrectState()
+        }
 
         gamePage.removeInputLastLetter()
-        gamePage.assertInsufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInsufficientState()
+        }
 
         gamePage.addInput(text = "h")
-        gamePage.assertSufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertSufficientState()
+        }
 
         gamePage.clickSkip()
 
         gamePage = GamePage(word = "auto".reversed())
 
-        gamePage.assertInitialState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInitialState()
+        }
     }
 
     /**
@@ -201,25 +283,37 @@ class ScenarioTest {
      */
     @Test
     fun caseNumber9() {
-        gamePage.assertInitialState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInitialState()
+        }
 
         gamePage.addInput(text = "anima")
-        gamePage.assertInsufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInsufficientState()
+        }
 
         gamePage.addInput(text = "h")
-        gamePage.assertSufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertSufficientState()
+        }
 
         gamePage.clickCheck()
-        gamePage.assertIncorrectState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertIncorrectState()
+        }
 
         gamePage.removeInputLastLetter()
-        gamePage.assertInsufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInsufficientState()
+        }
 
         gamePage.clickSkip()
 
         gamePage = GamePage(word = "auto".reversed())
 
-        gamePage.assertInitialState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInitialState()
+        }
     }
 
     /**
@@ -227,31 +321,53 @@ class ScenarioTest {
      */
     @Test
     fun caseNumber10() {
-        gamePage.assertInitialState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInitialState()
+        }
 
         gamePage.addInput(text = "anima")
-        gamePage.assertInsufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInsufficientState()
+        }
 
         gamePage.addInput(text = "h")
-        gamePage.assertSufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertSufficientState()
+        }
 
         gamePage.clickCheck()
-        gamePage.assertIncorrectState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertIncorrectState()
+        }
 
         gamePage.removeInputLastLetter()
-        gamePage.assertInsufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInsufficientState()
+        }
 
         gamePage.addInput(text = "l")
-        gamePage.assertSufficientState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertSufficientState()
+        }
 
         gamePage.clickCheck()
-        gamePage.assertCorrectState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertCorrectState()
+        }
 
         gamePage.clickNext()
 
         gamePage = GamePage(word = "auto".reversed())
 
-        gamePage.assertInitialState()
+        scenarioRule.doWithRecreate {
+            gamePage.assertInitialState()
+        }
+    }
+
+    private fun ActivityScenarioRule<*>.doWithRecreate(block: ()->Unit) {
+        block.invoke()
+        scenario.recreate()
+        block.invoke()
     }
 }
 
