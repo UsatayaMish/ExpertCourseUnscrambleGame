@@ -26,10 +26,11 @@ interface GameUiState : Serializable{
     }
 
     data class Initial(
-        private val shuffledWord: String
+        private val shuffledWord: String,
+        private val userInput: String = ""
     ) : Abstract(
         shuffledValue = shuffledWord,
-        inputUiState = InputUiState.Initial,
+        inputUiState = InputUiState.Initial(userInput),
         skipVisibility = View.VISIBLE,
         checkUiState = CheckUiState.Disabled,
         nextVisibility = View.GONE
