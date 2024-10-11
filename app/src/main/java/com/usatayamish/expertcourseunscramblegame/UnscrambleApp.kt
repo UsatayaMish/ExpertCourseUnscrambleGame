@@ -8,7 +8,13 @@ class UnscrambleApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        viewModel = GameViewModel(GameRepository.Base(ShuffleStrategy.Reverse()))
+        val sharedPreferences = getSharedPreferences("UnscrambleData", MODE_PRIVATE)
+        viewModel = GameViewModel(GameRepository.Base(
+            IntCache.Base(sharedPreferences, "indexKey", 0),
+            StringCache.Base(sharedPreferences, "userInputKey", ""),
+            ShuffleStrategy.Reverse()
+            )
+        )
     }
 
 }

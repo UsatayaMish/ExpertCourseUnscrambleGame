@@ -6,6 +6,7 @@ import org.junit.Assert.*
 import org.junit.Before
 
 
+
 class GameViewModelTest {
 
     private lateinit var viewModel: GameViewModel
@@ -344,5 +345,16 @@ private class FakeRepository : GameRepository {
         index++
         if (index == originalList.size)
             index = 0
+        saveUserInput("")
+    }
+
+    private var input: String = ""
+
+    override fun saveUserInput(value: String) {
+        input = value
+    }
+
+    override fun userInput(): String {
+        return input
     }
 }
