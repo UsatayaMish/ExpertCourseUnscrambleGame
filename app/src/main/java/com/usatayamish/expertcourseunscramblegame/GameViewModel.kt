@@ -4,11 +4,15 @@ class GameViewModel(
     private val repository: GameRepository
 ) {
 
-    fun init(): GameUiState {
-        return GameUiState.Initial(
-            repository.shuffledWord(),
-            repository.userInput()
-        )
+    fun init(isFirstRun: Boolean = true): GameUiState {
+        return if (isFirstRun) {
+            GameUiState.Initial(
+                repository.shuffledWord(),
+                repository.userInput()
+            )
+        } else {
+            GameUiState.Empty
+        }
     }
 
     fun next(): GameUiState {
@@ -17,13 +21,12 @@ class GameViewModel(
     }
 
     fun check(text: String): GameUiState {
-        val shuffledWord = repository.shuffledWord()
         val originalWord = repository.originalWord()
         val isCorrect = originalWord.equals(text, ignoreCase = true)
         return if(isCorrect)
-            GameUiState.Correct(shuffledWord)
+            GameUiState.Correct
         else
-            GameUiState.Incorrect(shuffledWord)
+            GameUiState.Incorrect
     }
 
     fun skip(): GameUiState {
@@ -36,9 +39,9 @@ class GameViewModel(
         val shuffledWord = repository.shuffledWord()
         val isSufficient = text.length == shuffledWord.length
         return if(isSufficient)
-            GameUiState.Sufficient(shuffledWord)
+            GameUiState.Sufficient
         else
-            GameUiState.Insufficient(shuffledWord)
+            GameUiState.Insufficient
     }
 
 
