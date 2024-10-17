@@ -19,10 +19,7 @@ class GamePage(word: String) {
         containerClassTypeMatcher = containerClassTypeMatcher
     )
 
-    private val inputUi = InputUi(
-        containerIdMatcher = containerIdMatcher,
-        containerClassTypeMatcher = containerClassTypeMatcher
-    )
+    private val inputUi = InputUi()
 
     private val nextUi = ButtonUi(
         id = R.id.nextButton,

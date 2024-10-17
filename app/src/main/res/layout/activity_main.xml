@@ -12,7 +12,7 @@
         android:layout_height="0dp"
         android:layout_weight="2"/>
 
-    <TextView
+    <com.usatayamish.expertcourseunscramblegame.views.shuffledword.ShuffledWordTextView
         tools:text="shuffled word example"
         android:textAppearance="@style/TextAppearance.AppCompat.Title"
         android:id="@+id/shuffledWordTextView"
@@ -27,25 +27,17 @@
         android:layout_height="0dp"
         android:layout_weight="1"/>
 
-    <com.google.android.material.textfield.TextInputLayout
+    <com.usatayamish.expertcourseunscramblegame.views.input.InputView
+        android:id="@+id/inputView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:id="@+id/inputLayout">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/inputEditText"/>
-
-    </com.google.android.material.textfield.TextInputLayout>
+        android:layout_height="wrap_content"/>
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"/>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.usatayamish.expertcourseunscramblegame.views.visibilitybutton.VisibilityButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/skipButton"
@@ -53,7 +45,7 @@
         android:layout_marginHorizontal="16dp"
         android:text="@string/skip"/>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.usatayamish.expertcourseunscramblegame.views.check.CheckButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/checkButton"
@@ -62,7 +54,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginVertical="8dp"/>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <com.usatayamish.expertcourseunscramblegame.views.visibilitybutton.VisibilityButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/nextButton"
