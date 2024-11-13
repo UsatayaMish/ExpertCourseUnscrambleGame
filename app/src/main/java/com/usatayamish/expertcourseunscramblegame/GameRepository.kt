@@ -21,7 +21,9 @@ interface GameRepository {
         private val originalList: List<String> = listOf(
             "animal",
             "auto",
-            "anecdote"
+            "anecdote",
+            "alphabet",
+            "all"
         )
     ) : GameRepository {
 
