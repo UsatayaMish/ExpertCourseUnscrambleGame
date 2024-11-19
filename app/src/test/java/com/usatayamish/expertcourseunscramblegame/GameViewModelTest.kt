@@ -1,5 +1,8 @@
 package com.usatayamish.expertcourseunscramblegame
 
+import com.usatayamish.expertcourseunscramblegame.game.GameRepository
+import com.usatayamish.expertcourseunscramblegame.game.GameUiState
+import com.usatayamish.expertcourseunscramblegame.game.GameViewModel
 import org.junit.Test
 
 import org.junit.Assert.*
