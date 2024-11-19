@@ -1,4 +1,4 @@
-package com.usatayamish.expertcourseunscramblegame
+package com.usatayamish.expertcourseunscramblegame.game
 
 class GameViewModel(
     private val repository: GameRepository

@@ -1,4 +1,4 @@
-package com.usatayamish.expertcourseunscramblegame
+package com.usatayamish.expertcourseunscramblegame.game
 
 import com.usatayamish.expertcourseunscramblegame.views.check.UpdateCheckButton
 import com.usatayamish.expertcourseunscramblegame.views.input.UpdateInput
@@ -69,7 +69,7 @@ interface GameUiState{
     }
 
     object Insufficient : Abstract(
-        inputUiState =  InputUiState.EnabledNoError,
+        inputUiState = InputUiState.EnabledNoError,
         checkUiState = CheckUiState.Disabled
         )
 

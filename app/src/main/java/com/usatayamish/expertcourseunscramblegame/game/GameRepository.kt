@@ -1,4 +1,4 @@
-package com.usatayamish.expertcourseunscramblegame
+package com.usatayamish.expertcourseunscramblegame.game
 
 import kotlin.streams.toList
 
@@ -59,14 +59,14 @@ interface ShuffleStrategy {
 
     fun shuffle(source: String) : String
 
-    class Base : ShuffleStrategy{
+    class Base : ShuffleStrategy {
 
         override fun shuffle(source: String): String {
             return source.chars().toList().shuffled().toString()
         }
     }
 
-    class Reverse : ShuffleStrategy{
+    class Reverse : ShuffleStrategy {
 
         override fun shuffle(source: String): String {
             return source.reversed()

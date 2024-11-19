@@ -1,6 +1,7 @@
 package com.usatayamish.expertcourseunscramblegame
 
 import android.view.View
+import com.usatayamish.expertcourseunscramblegame.game.CheckUiState
 import com.usatayamish.expertcourseunscramblegame.views.check.UpdateCheckButton
 import org.junit.Assert.assertEquals
 

@@ -3,6 +3,7 @@ package com.usatayamish.expertcourseunscramblegame
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.usatayamish.expertcourseunscramblegame.game.GamePage
+import com.usatayamish.expertcourseunscramblegame.main.MainActivity
 import com.usatayamish.expertcourseunscramblegame.stats.StatsPage
 
 import org.junit.Test

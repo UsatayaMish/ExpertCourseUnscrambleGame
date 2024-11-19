@@ -1,6 +1,11 @@
 package com.usatayamish.expertcourseunscramblegame
 
 import android.app.Application
+import com.usatayamish.expertcourseunscramblegame.game.GameRepository
+import com.usatayamish.expertcourseunscramblegame.game.GameViewModel
+import com.usatayamish.expertcourseunscramblegame.game.IntCache
+import com.usatayamish.expertcourseunscramblegame.game.ShuffleStrategy
+import com.usatayamish.expertcourseunscramblegame.game.StringCache
 
 class UnscrambleApp : Application() {
 
