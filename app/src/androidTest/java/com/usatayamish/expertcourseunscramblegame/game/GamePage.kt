@@ -102,8 +102,9 @@ class GamePage(word: String) {
         nextUi.assertNotVisible()
     }
 
-
-
+    fun assertNotVisible() {
+        inputUi.assertDoesNotExist()
+    }
 
 
 }
