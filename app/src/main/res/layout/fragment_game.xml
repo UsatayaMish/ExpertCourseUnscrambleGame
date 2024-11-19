@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"/>
+
+    <com.usatayamish.expertcourseunscramblegame.views.shuffledword.ShuffledWordTextView
+        tools:text="shuffled word example"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:id="@+id/shuffledWordTextView"
+        android:gravity="center"
+        android:padding="8dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <com.usatayamish.expertcourseunscramblegame.views.input.InputView
+        android:id="@+id/inputView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"/>
+
+    <com.usatayamish.expertcourseunscramblegame.views.visibilitybutton.VisibilityButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/skipButton"
+        android:background="@color/pink"
+        android:layout_marginHorizontal="16dp"
+        android:text="@string/skip"/>
+
+    <com.usatayamish.expertcourseunscramblegame.views.check.CheckButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/checkButton"
+        android:background="@color/blue"
+        android:text="@string/check"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="8dp"/>
+
+    <com.usatayamish.expertcourseunscramblegame.views.visibilitybutton.VisibilityButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/nextButton"
+        android:background="@color/light_blue"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/next"/>
+
+
+
+</LinearLayout>

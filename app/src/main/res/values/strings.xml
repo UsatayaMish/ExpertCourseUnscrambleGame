@@ -4,4 +4,6 @@
     <string name="next">next</string>
     <string name="check">check</string>
     <string name="incorrect_message">Incorrect!</string>
+    <string name="stats">Game Over\n\nSkips: %d\nFails: %d\nCorrects: %d</string>
+    <string name="new_game">New Game</string>
 </resources>
