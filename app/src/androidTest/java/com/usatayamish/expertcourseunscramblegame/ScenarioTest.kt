@@ -3,6 +3,7 @@ package com.usatayamish.expertcourseunscramblegame
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.usatayamish.expertcourseunscramblegame.game.GamePage
+import com.usatayamish.expertcourseunscramblegame.stats.StatsPage
 
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -460,10 +461,11 @@ class ScenarioTest {
 
         gamePage.assertNotVisible()
 
-        val statsPage = statsPage(skips = 3, fails = 3, corrects = 2)
+        val statsPage = StatsPage(skips = 3, fails = 3, corrects = 2)
         scenarioRule.doWithRecreate(statsPage::assertInitialState)
 
         statsPage.clickNewGame()
+        scenarioRule.doWithRecreate(statsPage::assertNotVisible)
 
         setup()
         scenarioRule.doWithRecreate(gamePage::assertInitialState)

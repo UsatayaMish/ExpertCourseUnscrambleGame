@@ -7,6 +7,7 @@ import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
 import androidx.test.espresso.action.ViewActions.pressKey
 import androidx.test.espresso.action.ViewActions.typeText
+import androidx.test.espresso.assertion.ViewAssertions.doesNotExist
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.isEnabled
@@ -67,5 +68,9 @@ class InputUi() {
     fun assertIncorrectState() {
         layoutInteraction.check(matches(isEnabled())).check(matches(TextInputLayoutErrorEnabledMatcher(true)))
             .check(matches(TextInputLayoutHasErrorText(R.string.incorrect_message)))
+    }
+
+    fun assertDoesNotExist() {
+        layoutInteraction.check(doesNotExist())
     }
 }
