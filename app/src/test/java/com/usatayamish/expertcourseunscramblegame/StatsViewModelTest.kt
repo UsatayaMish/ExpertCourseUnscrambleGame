@@ -1,5 +1,7 @@
 package com.usatayamish.expertcourseunscramblegame
 
+import com.usatayamish.expertcourseunscramblegame.stats.StatsRepository
+import com.usatayamish.expertcourseunscramblegame.stats.StatsViewModel
 import com.usatayamish.expertcourseunscramblegame.views.stats.StatsUiState
 import org.junit.Assert.assertEquals
 import org.junit.Test

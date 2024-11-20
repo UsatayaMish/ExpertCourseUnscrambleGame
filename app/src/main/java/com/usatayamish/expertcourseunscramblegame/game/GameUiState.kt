@@ -95,6 +95,12 @@ interface GameUiState{
         }
     }
 
+    object Finish: GameUiState {
+        override fun navigate(navigateToStats: NavigateToStats) {
+            navigateToStats.navigateToStats()
+        }
+    }
+
 
 }
 
