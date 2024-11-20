@@ -6,6 +6,7 @@ import com.usatayamish.expertcourseunscramblegame.game.GameViewModel
 import com.usatayamish.expertcourseunscramblegame.game.IntCache
 import com.usatayamish.expertcourseunscramblegame.game.ShuffleStrategy
 import com.usatayamish.expertcourseunscramblegame.game.StringCache
+import com.usatayamish.expertcourseunscramblegame.stats.StatsViewModel
 
 class UnscrambleApp : Application() {
 

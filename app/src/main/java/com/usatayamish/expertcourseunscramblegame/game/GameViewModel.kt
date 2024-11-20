@@ -5,11 +5,12 @@ class GameViewModel(
 ) {
 
     fun init(isFirstRun: Boolean = true): GameUiState {
-        return if (isFirstRun) {
-            GameUiState.Initial(
-                repository.shuffledWord(),
-                repository.userInput()
-            )
+        return if(isFirstRun) {
+            if(repository.isLastWord()) {
+                GameUiState.Finish
+            } else {
+                GameUiState.Initial(repository.shuffledWord(), repository.userInput())
+            }
         } else {
             GameUiState.Empty
         }
