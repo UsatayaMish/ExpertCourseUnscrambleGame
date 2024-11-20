@@ -1,5 +1,6 @@
 package com.usatayamish.expertcourseunscramblegame.game
 
+import com.usatayamish.expertcourseunscramblegame.stats.NavigateToStats
 import com.usatayamish.expertcourseunscramblegame.views.check.UpdateCheckButton
 import com.usatayamish.expertcourseunscramblegame.views.input.UpdateInput
 import com.usatayamish.expertcourseunscramblegame.views.shuffledword.UpdateText
@@ -15,18 +16,11 @@ interface GameUiState{
         skip: UpdateVisibility,
         check: UpdateCheckButton,
         next: UpdateVisibility
-    )
+    ) = Unit
 
-    object Empty : GameUiState {
+    fun navigate(navigateToStats: NavigateToStats) = Unit
 
-        override fun update(
-            shuffledWordTextView: UpdateText,
-            inputView: UpdateInput,
-            skip: UpdateVisibility,
-            check: UpdateCheckButton,
-            next: UpdateVisibility
-        ) = Unit
-    }
+    object Empty : GameUiState
 
     abstract class Abstract(
         private val inputUiState: InputUiState,

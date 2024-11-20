@@ -21,6 +21,10 @@ class MainActivity : AppCompatActivity(), Navigation {
             insets
         }
 
+        if(savedInstanceState == null) {
+            navigateToGame()
+        }
+
 
 
     }
