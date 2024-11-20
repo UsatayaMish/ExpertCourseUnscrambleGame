@@ -9,6 +9,7 @@ import com.usatayamish.expertcourseunscramblegame.game.StringCache
 
 class UnscrambleApp : Application() {
 
+    lateinit var statsViewModel: StatsViewModel
     lateinit var viewModel: GameViewModel
 
     override fun onCreate() {
