@@ -1,14 +1,17 @@
 package com.usatayamish.expertcourseunscramblegame.game
 
+import com.usatayamish.expertcourseunscramblegame.stats.StatsCache
 import kotlin.streams.toList
 
 interface GameRepository {
 
     fun shuffledWord(): String
 
-    fun originalWord(): String
+    fun isCorrect(text: String): Boolean
 
     fun next()
+
+    fun skip()
 
     fun saveUserInput(value: String)
 
@@ -18,6 +21,7 @@ interface GameRepository {
 
 
     class Base(
+        private val statsCache: StatsCache.Game,
         private val index: IntCache,
         private val userInput: StringCache,
         private val shuffleStrategy: ShuffleStrategy = ShuffleStrategy.Reverse(),
@@ -36,12 +40,25 @@ interface GameRepository {
 
         override fun shuffledWord(): String = shuffledList[index.read()]
 
-        override fun originalWord(): String = originalList[index.read()]
+        override fun isCorrect(text: String): Boolean {
+            val isCorrect =  originalList[index.read()].equals(text, ignoreCase = true)
+            if (isCorrect)
+                statsCache.incrementCorrects()
+            else
+                statsCache.incrementSkips()
+            return isCorrect
+        }
+
 
         override fun next() {
             index.save(index.read() + 1)
             userInput.save("")
 
+        }
+
+        override fun skip() {
+            statsCache.incrementSkips()
+            next()
         }
 
         override fun saveUserInput(value: String) {
@@ -53,10 +70,10 @@ interface GameRepository {
         }
 
         override fun isLastWord(): Boolean {
-            val lastWord = index.read() == originalList.size
-            if (lastWord)
+            val isLastWord = index.read() == originalList.size
+            if (isLastWord)
                 index.save(0)
-            return lastWord
+            return isLastWord
         }
     }
 }

@@ -31,7 +31,6 @@ class StatsFragment: Fragment() {
         val viewModel: StatsViewModel = (requireActivity().application as UnscrambleApp).statsViewModel
 
         binding.newGameButton.setOnClickListener {
-            viewModel.clear()
             (requireActivity() as NavigateToGame).navigateToGame()
         }
 
