@@ -7,8 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.usatayamish.expertcourseunscramblegame.UnscrambleApp
 import com.usatayamish.expertcourseunscramblegame.databinding.FragmentGameBinding
+import com.usatayamish.expertcourseunscramblegame.di.ProvideViewModel
 import com.usatayamish.expertcourseunscramblegame.stats.NavigateToStats
 
 class GameFragment: Fragment() {
@@ -58,7 +58,7 @@ class GameFragment: Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel = (requireActivity().application as UnscrambleApp).viewModel
+        viewModel = (requireActivity() as ProvideViewModel).makeViewModel(GameViewModel::class.java)
 
         binding.nextButton.setOnClickListener {
             uiState = viewModel.next()
@@ -79,6 +79,7 @@ class GameFragment: Fragment() {
 
 
         uiState = viewModel.init(savedInstanceState == null)
+        update.invoke()
     }
 
 

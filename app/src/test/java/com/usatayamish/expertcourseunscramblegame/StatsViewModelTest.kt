@@ -12,7 +12,11 @@ class StatsViewModelTest {
     fun test() {
 
         val repository = FakeStatsRepository()
-        val viewModel = StatsViewModel(repository = repository)
+        val clearViewModel = FakeClearViewModel()
+        val viewModel = StatsViewModel(
+            repository = repository,
+            clearViewModel = clearViewModel
+        )
 
         var actualState = viewModel.init(isFirstRun = true)
         assertEquals(StatsUiState.Base(1, 2, 3), actualState)
@@ -21,15 +25,17 @@ class StatsViewModelTest {
         actualState = StatsUiState.Empty
         assertEquals(StatsUiState.Empty, actualState)
 
+        viewModel.clear()
+        assertEquals(StatsViewModel::class.java, clearViewModel.clasz)
     }
 }
 
-private class FakeStatsRepository: StatsRepository {
+private class FakeStatsRepository : StatsRepository {
 
     private var clearCalled: Boolean = false
 
     override fun stats(): Triple<Int, Int, Int> {
-        return  Triple(1, 2, 3)
+        return Triple(1, 2, 3)
     }
 
     override fun clear() {

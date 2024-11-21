@@ -49,7 +49,7 @@ interface StatsCache {
         }
 
         override fun data(): Triple<Int, Int, Int> {
-            return Triple(skipsCache.read(), correctsCache.read(), failsCache.read())
+            return Triple(skipsCache.read(), failsCache.read(), correctsCache.read())
         }
 
 

@@ -45,7 +45,7 @@ interface GameRepository {
             if (isCorrect)
                 statsCache.incrementCorrects()
             else
-                statsCache.incrementSkips()
+                statsCache.incrementFails()
             return isCorrect
         }
 
