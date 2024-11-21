@@ -1,15 +1,23 @@
 package com.usatayamish.expertcourseunscramblegame.game
 
+import com.usatayamish.expertcourseunscramblegame.di.ClearViewModel
+import com.usatayamish.expertcourseunscramblegame.di.MyViewModel
+
 class GameViewModel(
-    private val repository: GameRepository
-) {
+    private val repository: GameRepository,
+    private val clearViewModel: ClearViewModel
+) : MyViewModel{
 
     fun init(isFirstRun: Boolean = true): GameUiState {
         return if(isFirstRun) {
             if(repository.isLastWord()) {
+                clearViewModel.clear(this::class.java)
                 GameUiState.Finish
             } else {
-                GameUiState.Initial(repository.shuffledWord(), repository.userInput())
+                val shuffledWord = repository.shuffledWord()
+                val userInput = repository.userInput()
+
+                GameUiState.Initial(shuffledWord, userInput)
             }
         } else {
             GameUiState.Empty

@@ -9,14 +9,18 @@ import org.junit.Assert.*
 import org.junit.Before
 
 
-
 class GameViewModelTest {
 
     private lateinit var viewModel: GameViewModel
+    private lateinit var clearViewModel: FakeClearViewModel
 
     @Before
     fun setup() {
-        viewModel = GameViewModel(repository = FakeRepository())
+        clearViewModel = FakeClearViewModel()
+        viewModel = GameViewModel(
+            repository = FakeRepository(),
+            clearViewModel = clearViewModel
+        )
     }
 
     /**
@@ -327,7 +331,8 @@ class GameViewModelTest {
 
     @Test
     fun testLastWordNext() {
-        viewModel = GameViewModel(repository = FakeRepository(listOf("one", "two")))
+        viewModel = GameViewModel(repository = FakeRepository(listOf("one", "two")),
+            clearViewModel = clearViewModel)
 
         var actual: GameUiState = viewModel.init(isFirstRun = true)
         var expected: GameUiState = GameUiState.Initial(shuffledWord = "one".reversed())
@@ -356,11 +361,14 @@ class GameViewModelTest {
         actual = viewModel.next()
         expected = GameUiState.Finish
         assertEquals(expected, actual)
+
+        assertEquals(GameViewModel::class.java, clearViewModel.clasz)
     }
 
     @Test
     fun testLastWordSkip() {
-        viewModel = GameViewModel(repository = FakeRepository(listOf("one", "two")))
+        viewModel = GameViewModel(repository = FakeRepository(listOf("one", "two")),
+            clearViewModel = clearViewModel)
 
         var actual: GameUiState = viewModel.init(isFirstRun = true)
         var expected: GameUiState = GameUiState.Initial(shuffledWord = "one".reversed())
@@ -383,6 +391,8 @@ class GameViewModelTest {
         actual = viewModel.skip()
         expected = GameUiState.Finish
         assertEquals(expected, actual)
+
+        assertEquals(GameViewModel::class.java, clearViewModel.clasz)
     }
 
 }
@@ -399,7 +409,7 @@ private class FakeRepository(
 
     private var index = 0
 
-    override fun shuffledWord() : String = shuffledList[index]
+    override fun shuffledWord(): String = shuffledList[index]
 
     override fun isCorrect(text: String): Boolean {
         return originalList[index].equals(text, ignoreCase = true)

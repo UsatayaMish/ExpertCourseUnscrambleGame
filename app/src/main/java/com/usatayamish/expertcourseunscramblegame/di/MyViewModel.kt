@@ -1,0 +1,3 @@
+package com.usatayamish.expertcourseunscramblegame.di
+
+interface MyViewModel
